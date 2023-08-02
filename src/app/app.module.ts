@@ -14,6 +14,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import {MatTabsModule} from '@angular/material/tabs'; 
 import { HttpClientModule } from '@angular/common/http';
 import { IncioComponent } from './incio/incio.component';
+import { AcercaComponent } from './acerca/acerca.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -23,6 +25,8 @@ import { IncioComponent } from './incio/incio.component';
     AppComponent,
     NavbarComponent,
     IncioComponent,
+    AcercaComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
