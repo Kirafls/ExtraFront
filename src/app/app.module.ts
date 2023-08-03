@@ -1,21 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AlertifyService } from './service/aletify.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
+import { MatButtonModule} from '@angular/material/button';
+import { MatCardModule} from '@angular/material/card';
 
 import { NavbarComponent } from './navbar/navbar.component';
-import {MatTabsModule} from '@angular/material/tabs'; 
+import { MatTabsModule } from '@angular/material/tabs'; 
 import { HttpClientModule } from '@angular/common/http';
 import { IncioComponent } from './incio/incio.component';
 import { AcercaComponent } from './acerca/acerca.component';
 import { FooterComponent } from './footer/footer.component';
+import { FormularioComponent } from './formulario/formulario.component';
+import { OfertaComponent } from './oferta/oferta.component';
 
 
 
@@ -27,6 +29,8 @@ import { FooterComponent } from './footer/footer.component';
     IncioComponent,
     AcercaComponent,
     FooterComponent,
+    FormularioComponent,
+    OfertaComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,11 +41,13 @@ import { FooterComponent } from './footer/footer.component';
     MatCardModule,
     FormsModule,
     MatTabsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
    
   ],
   providers: [
-    AlertifyService
+    AlertifyService,
+    HttpClientModule
   ],
   bootstrap: [AppComponent]
 })

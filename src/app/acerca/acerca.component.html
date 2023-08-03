@@ -1,6 +1,6 @@
 <img src="../../assets/Img/img1.jpg" class="img-fluid" alt="Salon de clases" style="width: 100%;height: 400px;">
+<fieldset>
 <div style="margin: 40px;">
-   
     <div class="container-flid">
         <h1>Quienes somos y cuales son nuestros objetivos</h1>
     </div>
@@ -42,18 +42,55 @@
             <li>Departamento de Investigación: +123 456 7892</li>
         </ul>
     </div>
- 
- 
-
-    <div class="container-flid" style="margin-left: 80px;">
-    <div class="card" style="width: 18rem;">
-        <img src="../../assets/Img/autor.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">El presente proyecto es universitario </h5>
-          <p class="card-text">Creado por: Carlos Saul Torres Alba
-          </p>
-          
-        </div>
-      </div>
+    <div class="container-flid">
+        <h1>Tienes una duda mas especifica</h1>
+    </div>
+    <div class="container-flid">
+            <div class="card">
+                <div class="card-body">
+                <form  [formGroup]="formUser">
+                    <label>Llena el formulario y proximanete un asesor se contactara contigo</label>
+                    <br>
+                    <div class="mb-2">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" formControlName="nombre" class="form-control" placeholder="Escribe tu nombre">
+                        <div class="alert alert-danger mt-2"[hidden]="nombre.valid||nombre.pristine">
+                            El nombre es requerido
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Apellido</label>
+                        <input type="text" formControlName="apellido" class="form-control" placeholder="Escribe tu apellido">
+                        <div class="alert alert-danger mt-2"[hidden]="apellido.valid||apellido.pristine">
+                            El apellido es requerido
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Email</label>
+                        <input type="text" formControlName="email" class="form-control" placeholder="Escribe tu Email@">
+                        <div class="alert alert-danger mt-2"[hidden]="email.valid||email.pristine">
+                            <span *ngIf="email.errors?.['required']">El email es requerido</span>
+                            <span *ngIf="email.errors?.['email']">El email no es valido</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-success" [disabled]="formUser.invalid" (click)="enviar()">Enviar</button>
+                </form>
+                </div>
+            </div>
     </div>
 </div>
+</fieldset>
+<img src="../../assets/Img/img2.jpg" class="img-fluid" alt="Salon de clases" style="width: 100%;height: 400px;">
+<fieldset style="margin: 50px">
+    <div class="container-flid" style="margin-left: 80px;">
+        <div class="card" style="width: 18rem;">
+            <img src="../../assets/Img/autor.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">El presente proyecto es universitario </h5>
+              <p class="card-text">Creado por: Carlos Saul Torres Alba
+              </p>
+              
+            </div>
+          </div>
+        </div>
+</fieldset>
