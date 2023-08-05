@@ -15,6 +15,7 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 export class FormularioComponent implements OnInit{
   ngOnInit(): void {
     this.alertify.success("Contenido cargado");
+    console.log(this.formAlumno.invalid);
   }
   constructor(private httpform:HttpClient,public alertify:AlertifyService){
 
@@ -37,13 +38,17 @@ export class FormularioComponent implements OnInit{
   get carrera(){
     return this.formAlumno.get("carrera") as FormControl;
   }
+  get genero(){
+    return this.formAlumno.get("genero") as FormControl;
+  }
   formAlumno=new FormGroup({
     "nombre":new FormControl("",Validators.required),
     "apellido":new FormControl("",Validators.required),
     "promedio":new FormControl("",Validators.required),
     "prepa": new FormControl("",Validators.required),
     "fechan": new FormControl("",Validators.required),
-    "carrera": new FormControl(""),
+    "genero":new FormControl("",Validators.required),
+    "carrera": new FormControl("",Validators.required),
 
   });
   nuevoAspirante(){
@@ -53,6 +58,7 @@ export class FormularioComponent implements OnInit{
         prepa:this.prepa.value,
         fecha:this.fechan.value,
         carrera:this.carrera.value,
+        genero:this.genero.value,
         promedio:this.promedio.value
       }
       this.httpform.post("http://localhost:3000/nuevo",params).subscribe(result=>{
@@ -60,6 +66,7 @@ export class FormularioComponent implements OnInit{
       });
       this.alertify.success("Los datos se han guardado correctamente");
       this.createPDF();
+      
     }
     createPDF(){ 
       const pdfDefinition: any = {
@@ -109,4 +116,5 @@ export class FormularioComponent implements OnInit{
       pdf.open();
    
     }
+
 }
