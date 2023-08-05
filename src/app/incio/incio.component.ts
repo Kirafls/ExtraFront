@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertifyService } from '../service/aletify.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-incio',
@@ -11,11 +12,14 @@ export class IncioComponent implements OnInit {
   ngOnInit(): void {
     this.confirmar();
   }
-  constructor(public alertifyService:AlertifyService){
+  constructor(public alertifyService:AlertifyService,public router:Router){
 
   }
   confirmar(){
     this.alertifyService.success("Inicio Cargado");
+  }
+  boton(){
+    this.alertifyService.modal("Llena el formulario");
   }
     
 }

@@ -30,4 +30,7 @@ export class AlertifyService {
   message(message: string) {
     alertify.message(message)
   }
+  modal(menssage: string){
+    alertify.alert(menssage);
+  }
 }

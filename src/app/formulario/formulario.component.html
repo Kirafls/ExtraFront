@@ -39,6 +39,11 @@
                         <div class="alert alert-danger mt-2" [hidden]="promedio.valid||promedio.pristine">El promedio es un campo requerido</div>
                     </div>
                     <div class="mb-2">
+                        <label for="form-label">Preparatoria de procedencia</label>
+                        <input type="tex" formControlName="prepa" class="form-control" placeholder="Ingresa la preparatoria de la cual vienes">
+                        <div class="alert alert-danger mt-2" [hidden]="promedio.valid||promedio.pristine">Es necesario llenar el campo</div>
+                    </div>
+                    <div class="mb-2">
                         <label for="form-label">Fecha de nacimiento</label>
                         <input type="date" formControlName="fechan" class="form-control" placeholder="Ingresa tu fecha de nacimiento">
                         <div class="alert alert-danger mt-2" [hidden]="nombre.valid||nombre.pristine">La fecha de nacimiento es un campo requerido</div>
@@ -73,7 +78,7 @@
                         </div>
                         <div class="alert alert-danger mt-2" [hidden]="carrera.valid">El carrera es un campo requerido</div>
                     </div>
-                    <button class="btn btn-success" [disabled]="formAlumno.valid"  routerLink="/inicio" (click)="nuevoAspirante()">Confirmar mi solicitud</button>
+                    <button class="btn btn-success" [disabled]="formAlumno.invalid"  routerLink="/inicio" (click)="nuevoAspirante()">Confirmar mi solicitud</button>
                 </form>
             </div>
         </div>
