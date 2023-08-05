@@ -44,10 +44,10 @@
                         <div class="alert alert-danger mt-2" [hidden]="nombre.valid||nombre.pristine">La fecha de nacimiento es un campo requerido</div>
                     </div>
                     <div class="mb-2">
-                        <label for="carrera"><h3>Selecciona la carreara a la que aspiras:</h3></label><br>
+                        <label for="carrera"><h3>Selecciona la carrera a la que aspiras:</h3></label><br>
                         <div style="margin: 20px;">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" formControlName="carrera" value="isc" name="carrera" checked id="radio1">
+                            <input class="form-check-input" type="radio" formControlName="carrera" value="isc" name="carrera" id="radio1">
                             <label class="form-check-label">
                             Ingeniería en sistemas computacionales
                             </label>
@@ -71,9 +71,9 @@
                             </label>
                           </div>
                         </div>
-                        <div class="alert alert-danger mt-2" [hidden]="carrera.valid||carrera.pristine">El carrera es un campo requerido</div>
+                        <div class="alert alert-danger mt-2" [hidden]="carrera.valid">El carrera es un campo requerido</div>
                     </div>
-                    <button class="btn btn-success"  (click)="nuevoAspirante()">Confirmar mi solicitud</button>
+                    <button class="btn btn-success" [disabled]="formAlumno.valid"  routerLink="/inicio" (click)="nuevoAspirante()">Confirmar mi solicitud</button>
                 </form>
             </div>
         </div>

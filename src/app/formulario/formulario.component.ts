@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertifyService } from '../service/aletify.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-formulario',
@@ -11,7 +13,7 @@ export class FormularioComponent implements OnInit{
   ngOnInit(): void {
     this.alertify.success("Contenido cargado");
   }
-  constructor(public alertify:AlertifyService){
+  constructor(private httpform:HttpClient,public alertify:AlertifyService){
 
   }
   get nombre(){
@@ -35,20 +37,25 @@ export class FormularioComponent implements OnInit{
   formAlumno=new FormGroup({
     "nombre":new FormControl("",Validators.required),
     "apellido":new FormControl("",Validators.required),
-    "promedio":new FormControl("",[Validators.required,Validators.max(10),Validators.min(0)]),
+    "promedio":new FormControl("",Validators.required),
     "prepa": new FormControl("",Validators.required),
     "fechan": new FormControl("",Validators.required),
-    "carrera": new FormControl("",Validators.required),
+    "carrera": new FormControl(""),
 
   });
   nuevoAspirante(){
-    if(this.formAlumno.valid){
-      this.alertify.success("Los datos se han guardado correctamente...");
+      let params={
+        nombre:this.nombre.value,
+        apellido:this.apellido.value,
+        prepa:this.prepa.value,
+        fecha:this.fechan.value,
+        carrera:this.carrera.value,
+        promedio:this.promedio.value
+      }
+      this.httpform.post("http://localhost:3000/nuevo",params).subscribe(result=>{
+        console.log(result)
+      });
+      this.alertify.success("Los datos se han guardado correctamente");
+      
     }
-    else{
-      this.alertify.message("Faltan campos por validad");
-      this.alertify.error("Faltan campos");
-    }
-    
-  }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup,Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 import { AlertifyService } from '../service/aletify.service';
 @Component({
   selector: 'app-acerca',
@@ -9,7 +9,7 @@ import { AlertifyService } from '../service/aletify.service';
 })
 export class AcercaComponent implements OnInit{
   
-  constructor(public http:HttpClient,public alertifyService:AlertifyService){
+  constructor(private http:HttpClient,public alertifyService:AlertifyService){
 
   }
   ngOnInit(): void {
